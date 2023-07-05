@@ -6,24 +6,23 @@ namespace ProblematicProblem
 {
     class program
     {
-        Random rng = new Random();
+        static Random rng = new Random();
 static bool cont = true;
         static List<string> activities = new List<string>() { "Movies", "Paintball", "Bowling", "Lazer Tag", "LAN Party", "Hiking", "Axe Throwing", "Wine Tasting" };
         static void Main(string[] args)
-{
+        {
              Random rng = new Random();
 
             Console.Write("Hello, welcome to the random activity generator! \nWould you like to generate a random activity? yes/no: ");
-            bool cont;
+            
             var contResponse = Console.ReadLine().ToLower();
-            if (contResponse == "yes") 
+            if (contResponse == "no") 
             {
-                cont = true;
+                Console.WriteLine("Goodbye!");
+                return;
             }
-            else
-            {
-                cont = false;
-            }
+            
+            
 
             Console.WriteLine();
             Console.Write("We are going to need your information first! What is your name? ");
@@ -64,20 +63,20 @@ static bool cont = true;
 
     while (cont)
     {
-        Console.Write("Connecting to the database");
-        for (int i = 0; i < 10; i++)
-        {
-            Console.Write(". ");
-            Thread.Sleep(500);
-        }
-        Console.WriteLine();
+                Console.Write("Connecting to the database");
+                for (int i = 0; i < 10; i++)
+                {
+                    Console.Write(". ");
+                    Thread.Sleep(500);
+                }
+                Console.WriteLine();
                 Console.Write("Choosing your random activity");
-        for (int i = 0; i < 9; i++)
-        {
-            Console.Write(". ");
-            Thread.Sleep(500);
-        }
-            Console.WriteLine();
+                for (int i = 0; i < 9; i++)
+                {
+                    Console.Write(". ");
+                    Thread.Sleep(500);
+                }
+                Console.WriteLine();
                 int randomNumber = rng.Next(activities.Count);
                 string randomActivity = activities[randomNumber];
                 if (userAge < 21 && randomActivity == "Wine Tasting")
